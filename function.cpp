@@ -3,18 +3,18 @@
 #include <iomanip>
 using namespace std;
 
-void fill_array(int**array, const size_t size1, const size_t size2, int number) //апрол
+void fill_array(int**array, const size_t size1, const size_t size2, int number) //заполнение массива
 {
-	size_t sizeX = size2, sizeY = size1; // X - ïî ãîðèçîíòàëè, Y - ïî âåðòèêàëè
-	int Summ = sizeX * sizeY; // êîëè÷åñòâî ýëåìåíòîâ
-	int newX = 0, newY = 0; // ñäâèã êîîðäèíàòû
-	int Count = number; // çíà÷åíèå ýëåìåíòà
-	int Beg = number; // äëÿ ñäâèãà, åñëè number != 0
+	size_t sizeX = size2, sizeY = size1; // X - по горизонтали, Y - по вертикали
+	int Summ = sizeX * sizeY; // количество элементов
+	int newX = 0, newY = 0; // сдвиг координаты
+	int Count = number; // значение элемента
+	int Beg = number; // для сдвига, если number != 0
 
 
 	while ((sizeY > 0) && (sizeX > 0))
 	{
-		for (int y = 0; y < 4; y++) // ïðîõîäèì ïî ÷åòûðåì ñòîðîíàì ìàòðèöû
+		for (int y = 0; y < 4; y++) // проходим по четырем сторонам матрицы
 		{
 			for (int x = 0; x < ((sizeX < sizeY) ? sizeY : sizeX); x++)
 			{
@@ -27,20 +27,20 @@ void fill_array(int**array, const size_t size1, const size_t size2, int number) 
 				if ((y == 3) && (x < sizeY - (newY + 1)) && (x != 0) && (Count <= Summ + (Beg - 1)))
 					array[sizeY - (x + 1)][newY] = Count++;
 
-// åñëè ýòî òåêóùàÿ ñòîðîíà è ïîêà çíà÷åíèå ýëåìåíòà íå äîñòèãëî êîíöà, èäåì ïî ðàìêå, çàïîëíÿÿ çíà÷åíèÿìè
+// если это текущая сторона и пока значение элемента не достигло конца, идем по рамке, заполняя значениями
 
 			}
 		}
 		sizeY--;
 		sizeX--;
 		newY += 1;
-		newX += 1; // äâèãàåìñÿ ê öåíòðó ìàòðèöû, íà åäèíèöó ñóæàÿ ñòîðîíû ðàìêè
+		newX += 1; // двигаемся к центру матрицы, на единицу сужая стороны рамки
 	}
 
 
 }
 
-void print_array(int** array, const size_t size1, const size_t size2) //âûâîä
+void print_array(int** array, const size_t size1, const size_t size2) //вывод
 {
 	for (int i = 0; i < size1; i++)
 	{
@@ -51,7 +51,7 @@ void print_array(int** array, const size_t size1, const size_t size2) //âûâî
 
 }
 
-bool equal_array(int** array1, const size_t str1, const size_t column1, int** array2, const size_t str2, const size_t column2) //ñðàâíåíèå ìàññèâîâ 
+bool equal_array(int** array1, const size_t str1, const size_t column1, int** array2, const size_t str2, const size_t column2) //сравнение массивов 
 {
 	if ((str1 != str2) || (column1 != column2)) return false;
 	for (size_t i = 0; i < str1; i++)
