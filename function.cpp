@@ -3,18 +3,18 @@
 #include <iomanip>
 using namespace std;
 
-void fill_array(int**array, const size_t size1, const size_t size2, int number) //çàïîëíåíèå ìàññèâà
+void fill_array(int**array, const size_t size1, const size_t size2, int number) //Ð°Ð¿Ñ€Ð¾Ð»
 {
-	size_t sizeX = size2, sizeY = size1; // X - ïî ãîðèçîíòàëè, Y - ïî âåðòèêàëè
-	int Summ = sizeX * sizeY; // êîëè÷åñòâî ýëåìåíòîâ
-	int newX = 0, newY = 0; // ñäâèã êîîðäèíàòû
-	int Count = number; // çíà÷åíèå ýëåìåíòà
-	int Beg = number; // äëÿ ñäâèãà, åñëè number != 0
+	size_t sizeX = size2, sizeY = size1; // X - Ã¯Ã® Ã£Ã®Ã°Ã¨Ã§Ã®Ã­Ã²Ã Ã«Ã¨, Y - Ã¯Ã® Ã¢Ã¥Ã°Ã²Ã¨ÃªÃ Ã«Ã¨
+	int Summ = sizeX * sizeY; // ÃªÃ®Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã® Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¢
+	int newX = 0, newY = 0; // Ã±Ã¤Ã¢Ã¨Ã£ ÃªÃ®Ã®Ã°Ã¤Ã¨Ã­Ã Ã²Ã»
+	int Count = number; // Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã 
+	int Beg = number; // Ã¤Ã«Ã¿ Ã±Ã¤Ã¢Ã¨Ã£Ã , Ã¥Ã±Ã«Ã¨ number != 0
 
 
 	while ((sizeY > 0) && (sizeX > 0))
 	{
-		for (int y = 0; y < 4; y++) // ïðîõîäèì ïî ÷åòûðåì ñòîðîíàì ìàòðèöû
+		for (int y = 0; y < 4; y++) // Ã¯Ã°Ã®ÃµÃ®Ã¤Ã¨Ã¬ Ã¯Ã® Ã·Ã¥Ã²Ã»Ã°Ã¥Ã¬ Ã±Ã²Ã®Ã°Ã®Ã­Ã Ã¬ Ã¬Ã Ã²Ã°Ã¨Ã¶Ã»
 		{
 			for (int x = 0; x < ((sizeX < sizeY) ? sizeY : sizeX); x++)
 			{
@@ -27,20 +27,20 @@ void fill_array(int**array, const size_t size1, const size_t size2, int number) 
 				if ((y == 3) && (x < sizeY - (newY + 1)) && (x != 0) && (Count <= Summ + (Beg - 1)))
 					array[sizeY - (x + 1)][newY] = Count++;
 
-// åñëè ýòî òåêóùàÿ ñòîðîíà è ïîêà çíà÷åíèå ýëåìåíòà íå äîñòèãëî êîíöà, èäåì ïî ðàìêå, çàïîëíÿÿ çíà÷åíèÿìè
+// Ã¥Ã±Ã«Ã¨ Ã½Ã²Ã® Ã²Ã¥ÃªÃ³Ã¹Ã Ã¿ Ã±Ã²Ã®Ã°Ã®Ã­Ã  Ã¨ Ã¯Ã®ÃªÃ  Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã  Ã­Ã¥ Ã¤Ã®Ã±Ã²Ã¨Ã£Ã«Ã® ÃªÃ®Ã­Ã¶Ã , Ã¨Ã¤Ã¥Ã¬ Ã¯Ã® Ã°Ã Ã¬ÃªÃ¥, Ã§Ã Ã¯Ã®Ã«Ã­Ã¿Ã¿ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿Ã¬Ã¨
 
 			}
 		}
 		sizeY--;
 		sizeX--;
 		newY += 1;
-		newX += 1; // äâèãàåìñÿ ê öåíòðó ìàòðèöû, íà åäèíèöó ñóæàÿ ñòîðîíû ðàìêè
+		newX += 1; // Ã¤Ã¢Ã¨Ã£Ã Ã¥Ã¬Ã±Ã¿ Ãª Ã¶Ã¥Ã­Ã²Ã°Ã³ Ã¬Ã Ã²Ã°Ã¨Ã¶Ã», Ã­Ã  Ã¥Ã¤Ã¨Ã­Ã¨Ã¶Ã³ Ã±Ã³Ã¦Ã Ã¿ Ã±Ã²Ã®Ã°Ã®Ã­Ã» Ã°Ã Ã¬ÃªÃ¨
 	}
 
 
 }
 
-void print_array(int** array, const size_t size1, const size_t size2) //âûâîä
+void print_array(int** array, const size_t size1, const size_t size2) //Ã¢Ã»Ã¢Ã®Ã¤
 {
 	for (int i = 0; i < size1; i++)
 	{
@@ -51,7 +51,7 @@ void print_array(int** array, const size_t size1, const size_t size2) //âûâîä
 
 }
 
-bool equal_array(int** array1, const size_t str1, const size_t column1, int** array2, const size_t str2, const size_t column2) //ñðàâíåíèå ìàññèâîâ 
+bool equal_array(int** array1, const size_t str1, const size_t column1, int** array2, const size_t str2, const size_t column2) //Ã±Ã°Ã Ã¢Ã­Ã¥Ã­Ã¨Ã¥ Ã¬Ã Ã±Ã±Ã¨Ã¢Ã®Ã¢ 
 {
 	if ((str1 != str2) || (column1 != column2)) return false;
 	for (size_t i = 0; i < str1; i++)
